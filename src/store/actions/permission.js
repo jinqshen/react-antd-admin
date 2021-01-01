@@ -7,6 +7,12 @@ const setRoutes = (routes) => {
 	}
 }
 
+const resetRoutes = () => {
+	return {
+		type: 'RESET_ROUTES'
+	}
+}
+
 /**
  * Use meta.role to determine if the current user has permission
  * @param roles
@@ -52,5 +58,6 @@ const generateRoutes = (roles) => (dispatch, getState) => {
 }
 
 export {
-  generateRoutes
+  generateRoutes,
+  resetRoutes
 }

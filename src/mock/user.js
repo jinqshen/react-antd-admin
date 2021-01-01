@@ -3,7 +3,7 @@ const tokens = {
 		token: 'admin-token'
 	},
 	member: {
-		token: 'editor-token'
+		token: 'member-token'
 	},
 	visitor: {
 		token: 'visitor-token'
@@ -60,12 +60,20 @@ module.exports = [
 		url: '/react-admin/user/info',
 		type: 'get',
 		response: config => {
-			console.log(config);
-			return {
-				code: 0,
-				msg: 'success',
-				data: users['admin-token']
+			const { token } = config.query;
+			if(['admin-token', 'member-token', 'visitor-token'].includes(token)) {
+				return {
+					code: 0,
+					msg: 'success',
+					data: users[token]
+				}
+			} else {
+				return {
+					code: 401,
+					msg: 'unAuth'
+				}
 			}
+			
 		}
 	}
 ]

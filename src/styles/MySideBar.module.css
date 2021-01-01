@@ -1,5 +1,8 @@
+.logo-wrap {
+	margin-top: 7px;;
+	margin-bottom: 7px;
+}
+
 .logo {
-	height: 32px;
-	background: rgb(143, 141, 141);
-	margin: 16px;
+	width: 50px;
 }

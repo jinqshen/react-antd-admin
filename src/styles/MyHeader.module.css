@@ -5,3 +5,9 @@
 .avatar-btn {
     height: 52px !important;
 }
+
+.locale {
+    font-size: 20px;
+    margin-right: 0px;
+    color: rgba(0, 0, 0, 0.85) !important;
+}

@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import store from '@/store';
 import '@/utils/request';
+import { loadLocaleRes } from '@/locale';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -13,6 +14,8 @@ if (process.env.NODE_ENV === 'development') {
   const { mockXHR } = require('./mock');
   mockXHR();
 }
+
+loadLocaleRes();
 
 ReactDOM.render(
   //<React.StrictMode>

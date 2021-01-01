@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { message } from 'antd';
 import { setToken as storageToken, removeToken } from '@/utils/auth';
+import { resetRoutes } from '@/store/actions/permission';
 
 const setToken = (token) => {
     return {
@@ -98,6 +99,7 @@ const getUserInfo = () => async (dispatch) => {
 const logout = () => async dispatch => {
     removeToken();
     dispatch(resetUser());
+    dispatch(resetRoutes());
 }
 
 export {

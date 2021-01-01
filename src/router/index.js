@@ -1,29 +1,37 @@
 import { Navigate } from 'react-router-dom';
-import { ReadOutlined } from '@ant-design/icons';
+import { ReadOutlined, HomeOutlined, LockOutlined, TableOutlined, SketchOutlined, UserOutlined, ControlOutlined } from '@ant-design/icons';
 import Login from '@/components/Login';
 import Home from '@/components/Home';
 import Article from '@/components/Article';
 import DashBoard from '@/components/DashBoard';
+import Technical from '@/components/Technical';
 import ArticleMgr from '@/components/ArticleMgr';
 import UserMgr from '@/components/UserMgr';
 import Permission from '@/components/Permission';
 import NotFound from '@/components/NotFound';
 
-/* const basicRoutes = [
-    {
-        path: '/',
-        element: <Navigate to='/react-admin/bookstore/article' />,
-        children: []
-    }
-] */
 
 export const constantRoutes = [
     {
         path: '/',
-        element: <Navigate to='/react-admin/bookstore/article' />
+        element: <Navigate to='/react-admin/dashboard' />,
+        hidden: true
     }, {
         path: '/login',
-        element: <Navigate to='/react-admin/bookstore/article' />
+        element: <Navigate to='/react-admin/dashboard' />,
+        hidden: true
+    }, {
+        path: '/react-admin',
+        element: <Home />,
+        children: [
+            {
+                name: 'dashboard',
+                path: '/dashboard',
+                element: <DashBoard />,
+                meta: { title: 'menu.home', icon: <HomeOutlined /> }
+            }
+        ],
+        onlyOne: true
     }, {
         name: 'bookstore',
         path: "/react-admin",
@@ -33,18 +41,15 @@ export const constantRoutes = [
                 name: 'article',
                 path: '/bookstore/article',
                 element: <Article />,
-                meta: { title: '工作总结', icon: <ReadOutlined /> }
+                meta: { title: 'menu.article', icon: <ReadOutlined /> }
             }, {
-                name: 'dashboard',
-                path: '/bookstore/dashboard',
-                element: <DashBoard />,
-                meta: { title: '技术学习', icon: <ReadOutlined /> }
-            }, {
-                path: '/notfound',
-                element: <NotFound />
+                name: 'technical',
+                path: '/bookstore/technical',
+                element: <Technical />,
+                meta: { title: 'menu.technical', icon: <SketchOutlined /> }
             }
         ],
-        meta: { title: '三味书屋', icon: <ReadOutlined /> }
+        meta: { title: 'menu.bookstore', icon: <ReadOutlined /> }
     }, {
         name: 'permission',
         path: "/react-admin",
@@ -54,13 +59,10 @@ export const constantRoutes = [
                 name: 'changerole',
                 path: '/permission/changerole',
                 element: <Permission />,
-                meta: { title: '权限测试', icon: <ReadOutlined /> }
+                meta: { title: 'menu.permissiontest', icon: <ControlOutlined /> }
             }
         ],
-        meta: { title: '权限', icon: <ReadOutlined /> }
-    }, {
-        path: '*',
-        element: <Navigate to='/react-admin/notfound' />
+        meta: { title: 'menu.permission', icon: <LockOutlined /> }
     }
 ]
 
@@ -74,22 +76,42 @@ export const asyncRoutes = [
                 name: 'articlemgr',
                 path: '/manager/articlemgr',
                 element: <ArticleMgr />,
-                meta: { title: '文章管理', icon: <ReadOutlined /> }
+                meta: { title: 'menu.articlemgr', icon: <ReadOutlined /> }
             }, {
                 name: 'usermgr',
                 path: '/manager/usermgr',
                 element: <UserMgr />,
-                meta: { title: '用户管理', icon: <ReadOutlined /> }
+                meta: { title: 'menu.usermgr', icon: <UserOutlined /> }
             }
         ],
-        meta: { title: '管理', icon: <ReadOutlined />, roles: ['admin', 'editor'] }
+        meta: { title: 'menu.manager', icon: <TableOutlined />, roles: ['admin', 'editor'] }
+    }, {
+        name: 'error',
+        path: "/react-admin",
+        element: <Home />,
+        children: [
+            {
+                name: 'notfound',
+                path: '/notfound',
+                element: <NotFound />,
+                hidden: true,
+                meta: { title: '404' }
+            }
+        ],
+        hidden: true
+    }, {
+        path: '*',
+        element: <Navigate to='/react-admin/notfound' />,
+        hidden: true
     }
 ];
 
 export const unAuthRoutes = [
     {
+        name: 'login',
         path: '/login',
-        element: <Login />
+        element: <Login />,
+        meta: { title: 'menu.login' }
     }, {
         path: '*',
         element: <Navigate to='/login' />

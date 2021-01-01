@@ -1,12 +1,14 @@
-import { constantRoutes, asyncRoutes } from '@/router';
+import { constantRoutes } from '@/router';
 
 
-const initstate = asyncRoutes.concat(constantRoutes);
+const initstate = constantRoutes;
 
 const permission = (state = initstate, action) => {
     switch(action.type) {
         case 'SET_ROUTES':
-            return action.data.concat(constantRoutes);
+            return constantRoutes.concat(action.data);
+        case 'RESET_ROUTES':
+            return initstate;
         default:
             return state;
     }
