@@ -16,7 +16,7 @@ function Home() {
 	return (
 		<Layout>
 			<Layout>
-				<SideBar collapsed={collapsed}></SideBar>
+				<SideBar collapsed={collapsed} setCollapsed={setCollapsed}></SideBar>
 				<Layout>
 					<Header siderCollapsed={collapsed} setSiderCollapsed={setCollapsed} ></Header>
 					<Content>
