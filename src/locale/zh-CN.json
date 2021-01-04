@@ -22,6 +22,10 @@
     "header": {
         "openmenu": "展开菜单",
         "collapsemenu": "收起菜单",
-        "logout": "注销"
+        "logout": "注销",
+        "theme": {
+            "light": "默认主题",
+            "dark": "暗黑主题"
+        }
     }
 }

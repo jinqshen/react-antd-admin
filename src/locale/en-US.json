@@ -22,6 +22,10 @@
     "header": {
         "openmenu": "Open Menu",
         "collapsemenu": "Collapse Menu",
-        "logout": "Logout"
+        "logout": "Logout",
+        "theme": {
+            "light": "Light",
+            "dark": "Dark"
+        }
     }
 }

@@ -31,7 +31,7 @@ function Login() {
 				<Form name="login" onFinish={login}>
 					<Form.Item>
 						<Dropdown overlay={<LocaleMenu />}>
-							<Button type="link" className={[loginCss['language-btn']].join(' ')}>
+							<Button type="text" className={[loginCss['language-btn']].join(' ')}>
 								<TranslationOutlined className={[loginCss['language-logo']].join(' ')} />
 							</Button>
 						</Dropdown>

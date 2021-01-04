@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Layout, Menu } from 'antd';
+import { } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -24,6 +25,8 @@ function MySideBar(props) {
     const collapsed = props.collapsed;
 
     const router = useSelector(state => state.permission);
+
+    const theme = useSelector(state => state.setting.theme);
 
     const router2Menu = (prefixPath, router) => {
 
@@ -65,7 +68,7 @@ function MySideBar(props) {
     }
 
     return (
-        <Sider theme="light" collapsible collapsed={collapsed} trigger={null} >
+        <Sider theme={theme} collapsible collapsed={collapsed} trigger={null} style={{height: '100vh'}} >
             <Row justify="center" align="middle" className={mySideBarCss['logo-wrap']}>
                 <img className={[mySideBarCss['logo']].join(' ')} src={logo} alt="logo" />
             </Row>

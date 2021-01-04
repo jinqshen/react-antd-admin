@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Layout, Row, Col, Tooltip, Button, Avatar, Dropdown, Menu, Space } from 'antd';
-import { MenuUnfoldOutlined, MenuFoldOutlined, CaretDownOutlined, GithubOutlined, TranslationOutlined } from '@ant-design/icons';
+import { MenuUnfoldOutlined, MenuFoldOutlined, CaretDownOutlined, GithubOutlined, TranslationOutlined, ToolOutlined } from '@ant-design/icons';
 import LocaleMenu from '@/components/LocaleMenu';
+import ThemeMenu from '@/components/ThemeMenu';
 import { logout } from '@/store/actions/user';
 import myHeaderCss from '@/styles/MyHeader.module.css';
 
@@ -21,23 +22,30 @@ function MyHeader(props) {
 
     const userInfo = useSelector(state => state.user);
 
+    const theme = useSelector(state => state.setting.theme);
+
     return (
-        <Header className={[myHeaderCss['bg-white']].join(' ')}>
+        <Header className={[theme === 'light' ? myHeaderCss['bg-white'] : null].join(' ')}>
             <Row justify="space-between">
                 <Col>
-                    <Button type="link" style={{marginLeft: -30, color: '#282c34'}} onClick={() => setCollapsed(!collapsed)}>
+                    <Button type="text" style={{marginLeft: -30}} onClick={() => setCollapsed(!collapsed)}>
                         {collapsed ? <Tooltip title={t('header.openmenu')}><MenuUnfoldOutlined /></Tooltip> : <Tooltip title={t('header.collapsemenu')}><MenuFoldOutlined /></Tooltip>}
                     </Button>
                 </Col>
                 <Col>
                     <Space>
+                        <Dropdown overlay={<ThemeMenu />}>
+                            <Button type="text" className={[myHeaderCss['avatar-btn']].join(' ')}>
+                                <ToolOutlined className={[myHeaderCss['locale']].join(' ')} />
+                            </Button>
+                        </Dropdown>
                         <Dropdown overlay={<LocaleMenu />}>
-                            <Button type="link" className={[myHeaderCss['avatar-btn']].join(' ')}>
+                            <Button type="text" className={[myHeaderCss['avatar-btn']].join(' ')}>
                                 <TranslationOutlined className={[myHeaderCss['locale']].join(' ')} />
                             </Button>
                         </Dropdown>
                         <Dropdown overlay={<PersonMenu />} trigger={['click']}>
-                            <Button type="link" className={[myHeaderCss['avatar-btn']].join(' ')}>
+                            <Button type="text" className={[myHeaderCss['avatar-btn']].join(' ')}>
                                 <Avatar src={userInfo.avatar} />
                                 <CaretDownOutlined />
                             </Button>

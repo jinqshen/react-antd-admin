@@ -9,7 +9,10 @@ import { useTranslation } from 'react-i18next';
 import { getUserInfo } from '@/store/actions/user';
 import { generateRoutes } from '@/store/actions/permission';
 import { unAuthRoutes } from '@/router';
+import darkTheme from '@/dark.json';
+import lightTheme from '@/light.json';
 import '@/App.less';
+import 'antd/dist/antd.less';
 
 function App() {
 
@@ -50,8 +53,18 @@ function App() {
 		setTitle(titleMap[arr.pop()]);
 	}, [ location.pathname, title, titleMap ])
 
-  const locale = useSelector(state => state.locale);
+  const locale = useSelector(state => state.setting.locale);
 
+  const theme = useSelector(state => state.setting.theme);
+
+  useEffect(() => {
+    if(theme === 'dark') {
+      window.less.modifyVars(darkTheme).catch(error => console.log('change dark theme fail'));
+    }else {
+      window.less.modifyVars(lightTheme).catch(error => console.log('change light theme fail'));
+    }
+  }, [ theme ]);
+  
   return (
     <ConfigProvider locale={locale === 'en-US' ? enUS : zhCN}>
         <Helmet title={t(title)} />
