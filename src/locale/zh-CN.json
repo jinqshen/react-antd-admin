@@ -27,5 +27,11 @@
             "light": "默认主题",
             "dark": "暗黑主题"
         }
+    },
+    "tabsview": {
+        "refresh": "刷新",
+        "close": "关闭",
+        "closeother": "关闭其他",
+        "closeall": "关闭所有"
     }
 }

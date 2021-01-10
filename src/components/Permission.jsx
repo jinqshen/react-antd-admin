@@ -3,17 +3,19 @@ import { Button, Space } from 'antd';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setRoles } from '@/store/actions/user';
+import { closeOtherTab } from '@/store/actions/visitedhistory';
 
 function Permission() {
 
     const dispatch = useDispatch();
 
     const changeAdminRole = () => {
-		dispatch(setRoles(['admin']));
+        dispatch(setRoles(['admin']));
 	}
 
 	const changeBasicRole = () => {
-		dispatch(setRoles(['visitor']));
+        dispatch(setRoles(['visitor']));
+        dispatch(closeOtherTab('changerole'));
 	}
 
     return (

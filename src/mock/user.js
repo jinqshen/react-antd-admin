@@ -17,7 +17,7 @@ const users = {
 		avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
 		nickName: 'Super Admin'
 	},
-	'user-token': {
+	'member-token': {
 		roles: ['member'],
 		introduction: 'I am a member',
 		avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',

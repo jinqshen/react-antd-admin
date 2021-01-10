@@ -27,5 +27,11 @@
             "light": "Light",
             "dark": "Dark"
         }
+    },
+    "tabsview": {
+        "refresh": "Refresh",
+        "close": "Close",
+        "closeother": "Close Other",
+        "closeall": "Close All"
     }
 }

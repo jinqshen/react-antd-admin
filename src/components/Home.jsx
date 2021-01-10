@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import Header from '@/layout/MyHeader';
 import SideBar from '@/layout/MySideBar';
+import TabsView from '@/layout/TabsView';
 //import { getUserInfo } from '@/store/actions/user';
 //import homeCss from '@/styles/Home.module.css';
 
@@ -20,6 +21,7 @@ function Home() {
 				<Layout>
 					<Header siderCollapsed={collapsed} setSiderCollapsed={setCollapsed} ></Header>
 					<Content>
+						<TabsView />
 						<Outlet />
 					</Content>
 				</Layout>

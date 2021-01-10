@@ -44,14 +44,15 @@ function App() {
 
   const location = useLocation();
 
-	const titleMap = useSelector(state => state.title);
+	const routemap = useSelector(state => state.routemap);
 
 	const [ title, setTitle ] = useState('RA-Admin');
 
 	useEffect(() => {
-		const arr =  location.pathname.split('/');
-		setTitle(titleMap[arr.pop()]);
-	}, [ location.pathname, title, titleMap ])
+    const arr =  location.pathname.split('/');
+    const rmap = routemap[arr.pop()];
+    if(rmap)  setTitle(rmap.title);
+	}, [ location.pathname, title, routemap ])
 
   const locale = useSelector(state => state.setting.locale);
 
