@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { addOneTab } from '@/store/actions/visitedhistory';
-import mySideBarCss from '@/styles/MySideBar.module.css';
+import mySideBarCss from '@/styles/MySideBar.module.less';
 import logo from '@/images/logo.png';
 
 const { Sider } = Layout;

@@ -7,7 +7,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined, CaretDownOutlined, GithubOutlined
 import LocaleMenu from '@/components/LocaleMenu';
 import ThemeMenu from '@/components/ThemeMenu';
 import { logout } from '@/store/actions/user';
-import myHeaderCss from '@/styles/MyHeader.module.css';
+import myHeaderCss from '@/styles/MyHeader.module.less';
 
 
 const { Header } = Layout;

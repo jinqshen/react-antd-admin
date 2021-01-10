@@ -6,7 +6,7 @@ import Header from '@/layout/MyHeader';
 import SideBar from '@/layout/MySideBar';
 import TabsView from '@/layout/TabsView';
 //import { getUserInfo } from '@/store/actions/user';
-//import homeCss from '@/styles/Home.module.css';
+//import homeCss from '@/styles/Home.module.less';
 
 const { Content } = Layout;
 

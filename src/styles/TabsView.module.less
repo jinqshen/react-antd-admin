@@ -5,6 +5,14 @@
     box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
     padding: 0px 16px;
     background-color: #000000;
+    .contextmenu-item {
+        cursor: pointer;
+        padding: 5px;
+        &:hover {
+            background-color: #e6f7ff;
+            color: #177ddc;
+        }
+    }
 }
 
 .contextmenu-light {
@@ -14,24 +22,12 @@
     box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
     padding: 0px 16px;
     background-color: #ffffff;
-}
-
-.contextmenu-dark .contextmenu-item {
-    cursor: pointer;
-    padding: 5px;
-}
-
-.contextmenu-dark .contextmenu-item:hover {
-    background-color: #e6f7ff;
-    color: #177ddc;
-}
-
-.contextmenu-light .contextmenu-item {
-    cursor: pointer;
-    padding: 5px;
-}
-
-.contextmenu-light .contextmenu-item:hover {
-    background-color: #e6f7ff;
-    color: #177ddc;
+    .contextmenu-item {
+        cursor: pointer;
+        padding: 5px;
+        &:hover {
+            background-color: #e6f7ff;
+            color: #177ddc;
+        }
+    }
 }

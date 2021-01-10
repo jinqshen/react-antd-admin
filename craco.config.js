@@ -11,9 +11,12 @@ module.exports = {
     {
       plugin: CracoLessPlugin,
       options: {
+        modifyLessRule: (lessRule, context) => {
+          lessRule.exclude = undefined;
+          return lessRule;
+        },
         lessLoaderOptions: {
           lessOptions: {
-						modifyVars: { '@primary-color': '#1DA57A' },
             javascriptEnabled: true,
           },
         },

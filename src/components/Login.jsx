@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { UserOutlined, LockOutlined, TranslationOutlined } from '@ant-design/icons';
 import LocaleMenu from '@/components/LocaleMenu';
 import { login as authLogin } from '@/store/actions/user';
-import loginCss from '@/styles/Login.module.css';
+import loginCss from '@/styles/Login.module.less';
 
 function Login() {
 

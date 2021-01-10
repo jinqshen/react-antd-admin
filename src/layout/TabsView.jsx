@@ -4,7 +4,7 @@ import { Tabs, List } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { closeOneTab, addOneTab, closeAllTab, closeOtherTab } from '@/store/actions/visitedhistory';
-import tabsViewCss from '@/styles/TabsView.module.css';
+import tabsViewCss from '@/styles/TabsView.module.less';
 
 const { TabPane } = Tabs;
 
